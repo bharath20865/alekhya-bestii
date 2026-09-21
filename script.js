@@ -38,3 +38,8 @@ musicBtn.addEventListener('click',()=>{
   gainNode=audioCtx.createGain(); gainNode.gain.value=.015; gainNode.connect(audioCtx.destination);
   osc=audioCtx.createOscillator(); osc.type='sine'; osc.frequency.value=261.63; osc.connect(gainNode); osc.start(); playing=true; musicBtn.textContent='◼';
 });
+
+const moodButtons=document.querySelectorAll('.mood');
+const moodTitle=document.getElementById('moodTitle');
+const moodText=document.getElementById('moodText');
+moodButtons.forEach(btn=>btn.addEventListener('click',()=>{moodButtons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');moodTitle.textContent=btn.dataset.title;moodText.textContent=btn.dataset.text;}));
